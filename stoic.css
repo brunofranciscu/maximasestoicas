@@ -43,6 +43,7 @@ em{
   transform: translateX(-50%);
   color: #888;
   font-family: Arial;
+  margin-top:20px
 }
 h1.loading:after{
   content: '';
