@@ -1,9 +1,15 @@
 <html>
   <head>
-    <title>Máximas Estoicas</title>
+    <title>Máximas Estóicas</title>
     <link rel="stylesheet" href="stoic.css">
     <meta charset="utf-8">
-	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	  
+<meta property='og:title' content='Máximas Estóicas'/>
+<meta property='og:image' content='https://francisbruno.github.io/maximasestoicas/mE.jpg'/>
+<meta property='og:description' content='DON’T FIGHT YOUR IMAGINARY ENEMIES'/>
+<meta property='og:url' content='https://francisbruno.github.io/maximasestoicas/'/>
+	  
   </head>
   <body>
     <main>
@@ -27,7 +33,7 @@
           document.querySelector('h1').innerHTML = response.translated_text.pt;
           document.querySelector('h1').classList.remove('loading')
           document.querySelector('em').innerHTML = '-' + quote.author;
-          document.querySelector('title').innerHTML = '"' + response.translated_text.pt + '" | Máximas Estoicas';
+          document.querySelector('title').innerHTML = '"' + response.translated_text.pt + '" | Máximas Estóicas';
         })
       })
     </script>
