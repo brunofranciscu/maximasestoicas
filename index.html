@@ -1,42 +1,39 @@
 <html>
   <head>
-    <title>Máximas Estóicas</title>
+    <title>Máximas Estoicas</title>
     <link rel="stylesheet" href="stoic.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	  
-<meta property='og:title' content='Máximas Estóicas'/>
-<meta property='og:image' content='https://francisbruno.github.io/maximasestoicas/mE.jpg'/>
-<meta property='og:description' content='DON’T FIGHT YOUR IMAGINARY ENEMIES'/>
-<meta property='og:url' content='https://francisbruno.github.io/maximasestoicas/'/>
-	  
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    
   </head>
   <body>
     <main>
+    	<div class="seconds"></div>
       <section>
         <h1 class="loading"></h1>
         <em></em>
     </main>
     </section>
     <script>
-      const options = {
-        method: 'GET',
-        headers: {
-          'X-RapidAPI-Host': 'nlp-translation.p.rapidapi.com',
-          'X-RapidAPI-Key': 'b2ca73ecefmsh660b81046cdbd5ep1a9dbdjsnb5c2bb8dd6fd'
-        }
-      }
+      var quoted = 0;
+
+      function maximasEstoicas(){
+      	const options = { method: 'GET', headers: { 'X-RapidAPI-Host': 'nlp-translation.p.rapidapi.com', 'X-RapidAPI-Key': 'b2ca73ecefmsh660b81046cdbd5ep1a9dbdjsnb5c2bb8dd6fd'} }
+
       fetch('https://stoicquotesapi.com/v1/api/quotes/random').then(response => {
         return response.json()
       }).then(quote => {
         fetch('https://nlp-translation.p.rapidapi.com/v1/translate?text=' + quote.body + '&to=pt&from=en', options).then(response => response.json()).then(response => {
+          quoted = Math.floor(response.translated_text.pt.length * 80)
           document.querySelector('h1').innerHTML = response.translated_text.pt;
           document.querySelector('h1').classList.remove('loading')
           document.querySelector('em').innerHTML = '-' + quote.author;
-          document.querySelector('title').innerHTML = '"' + response.translated_text.pt + '" | Máximas Estóicas';
+          document.querySelector('title').innerHTML = '"' + response.translated_text.pt + '" | Máximas Estoicas';
+          	
+          setTimeout(function(){maximasEstoicas() },quoted)
         })
       })
-    </script>
+ }maximasEstoicas()
+  
     </script>
   </body>
 </html>
