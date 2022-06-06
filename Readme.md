@@ -6,7 +6,7 @@ Faz fetch de Máximas Estoicas aleatórias e traduz para o Português.
  	Com o intuito de acabar com um Brasil que não existe, onde pessoas repetem/postam frases como:
 
     *trabalhe enquanto eles dormem (Eles quem?);
-    *Mil cairão ao teu lado, e dez mil à tua direita... (Ningué quer te derrubar, ninguém quer ao menos te ver);
+    *Mil cairão ao teu lado, e dez mil à tua direita... (Ninguém quer te derrubar, ninguém quer ao menos te ver);
     *Muitos já tentaram me derrubar, mas inveja e mau olhado nenhum serão...(vai me dizer que tú tem $2bi no seu colchão).
 		
 
