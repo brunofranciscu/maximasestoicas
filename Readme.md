@@ -1,6 +1,6 @@
 https://francisbruno.github.io/maximasestoicas/
 
-Projeto feito consumindo 2 APIs (stoic https://stoicquotesapi.com/v1/api/quotes/random, https://nlp-translation.p.rapidapi.com/v1/translate).
+Projeto feito consumindo 2 APIs (https://stoicquotesapi.com/v1/api/quotes/random, https://nlp-translation.p.rapidapi.com/v1/translate).
 Faz fetch de Máximas Estoicas aleatórias e traduz para o Português.
 
  	Com o intuito de acabar com um Brasil que não existe, onde pessoas repetem/postam frases como:
