@@ -1,4 +1,4 @@
-https://francisbruno.github.io/maximasestoicas/
+https://brunofranciscu.github.io/maximasestoicas/
 
 Projeto feito consumindo 2 APIs (https://stoicquotesapi.com/v1/api/quotes/random, https://nlp-translation.p.rapidapi.com/v1/translate).
 Faz fetch de Máximas Estoicas aleatórias e traduz para o Português.
