@@ -14,10 +14,11 @@
       <h1 class="loading"></h1>
       <em></em>
 
-      <div class="loader">
 
-      </div>
   </main>
+  <div class="loader">
+
+  </div>
   </section>
   <script>
     var quoted = 0;
@@ -32,6 +33,7 @@
           quoted = Math.floor(response.translated_text.pt.length * 80)
           document.querySelector('h1').innerHTML = response.translated_text.pt;
           document.querySelector('h1').classList.remove('loading')
+          document.querySelector('.loader').style.opacity = '0'
           document.querySelector('em').innerHTML = '-' + quote.author;
           document.querySelector('title').innerHTML = '"' + response.translated_text.pt + '" | Máximas Estoicas';
 
