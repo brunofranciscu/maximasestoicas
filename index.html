@@ -1,23 +1,29 @@
 <html>
-  <head>
-    <title>Máximas Estoicas</title>
-    <link rel="stylesheet" href="stoic.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-    
-  </head>
-  <body>
-    <main>
-    	<div class="seconds"></div>
-      <section>
-        <h1 class="loading"></h1>
-        <em></em>
-    </main>
-    </section>
-    <script>
-      var quoted = 0;
 
-      function maximasEstoicas(){
-      	const options = { method: 'GET', headers: { 'X-RapidAPI-Host': 'nlp-translation.p.rapidapi.com', 'X-RapidAPI-Key': 'b2ca73ecefmsh660b81046cdbd5ep1a9dbdjsnb5c2bb8dd6fd'} }
+<head>
+  <title>Máximas Estoicas</title>
+  <link rel="stylesheet" href="stoic.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body>
+  <main>
+    <div class="seconds"></div>
+    <section>
+      <h1 class="loading"></h1>
+      <em></em>
+
+      <div class="loader">
+
+      </div>
+  </main>
+  </section>
+  <script>
+    var quoted = 0;
+
+    function maximasEstoicas() {
+      const options = { method: 'GET', headers: { 'X-RapidAPI-Host': 'nlp-translation.p.rapidapi.com', 'X-RapidAPI-Key': 'b2ca73ecefmsh660b81046cdbd5ep1a9dbdjsnb5c2bb8dd6fd' } }
 
       fetch('https://stoicquotesapi.com/v1/api/quotes/random').then(response => {
         return response.json()
@@ -28,12 +34,13 @@
           document.querySelector('h1').classList.remove('loading')
           document.querySelector('em').innerHTML = '-' + quote.author;
           document.querySelector('title').innerHTML = '"' + response.translated_text.pt + '" | Máximas Estoicas';
-          	
-          setTimeout(function(){maximasEstoicas() },quoted)
+
+          setTimeout(function () { maximasEstoicas() }, quoted)
         })
       })
- }maximasEstoicas()
-  
-    </script>
-  </body>
+    } maximasEstoicas()
+
+  </script>
+</body>
+
 </html>
