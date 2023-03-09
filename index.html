@@ -26,7 +26,7 @@
     function maximasEstoicas() {
       const options = { method: 'GET', headers: { 'X-RapidAPI-Host': 'nlp-translation.p.rapidapi.com', 'X-RapidAPI-Key': 'b2ca73ecefmsh660b81046cdbd5ep1a9dbdjsnb5c2bb8dd6fd' } }
 
-      fetch('https://stoicquotesapi.com/v1/api/quotes/random').then(response => {
+      fetch('https://api.themotivate365.com/stoic-quote').then(response => {
         return response.json()
       }).then(quote => {
         fetch('https://nlp-translation.p.rapidapi.com/v1/translate?text=' + quote.body + '&to=pt&from=en', options).then(response => response.json()).then(response => {
