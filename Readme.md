@@ -23,7 +23,6 @@ Estrutura do JSON
 O arquivo JSON frases.json deve ter a seguinte estrutura:
 
 ```json
-Copiar código
 [
   {
     "id": 1,
@@ -35,7 +34,6 @@ Copiar código
     "author": "Autor 2",
     "text": "Frase 1 do Autor 2"
   },
-  ...
 ]
 ```
 ## Componentes Principais
