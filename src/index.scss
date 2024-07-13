@@ -12,3 +12,8 @@
 .pagination::-webkit-scrollbar { 
     display: none;  /* Safari and Chrome */
 }
+
+@keyframes opacity{
+    from{ opacity: .2}
+    to{ opacity: 1}
+}
