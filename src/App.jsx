@@ -8,7 +8,7 @@ export default function App() {
 
   useEffect(() => {
     const carregarFrase = async () => {
-      const data = await fetch('./src/assets/frases.json');
+      const data = await fetch('./frases.json');
       const response = await data.json();
       setFrases(response.quotes);
       gerarNovaFrase(response.quotes);
