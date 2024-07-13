@@ -7,7 +7,11 @@ const Quotes = () => {
   const { id } = useParams();
   const quote = quotes.quotes.find(q => q.id === parseInt(id));
 
-  if (!quote) return <div>Máxima não encontrado.</div>
+  if (!quote) {
+    return (<div className='h-[100dvh] w-full relative grid place-content-center bg-gray-200 dark:bg-gray-800 px-5'>
+              <h3 className='font-["Poppins"] font-[500] sm:text-4xl text-2xl leading-10 max-w-[1300px] text-center text-balance text-gray-600 dark:text-gray-300'>Máxima não encontrado.</h3>
+            </div>)
+  }
   const shareUrl = window.location.origin.toString();
 
   return (
