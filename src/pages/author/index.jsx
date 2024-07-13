@@ -28,7 +28,7 @@ const Author = () => {
       <div className='flex flex-col max-w-[1200px] w-full px-16 mx-auto gap-5 '>
 
         <div className='flex justify-between'>
-          <button onClick={() => navigate(-1)} className='dark:text-gray-400 text-gray-900 font-["Poppins"] font-[300] hover:text-gray-400 duration-100'><span className='relative top-[1px]'>&lt;</span> voltar</button>
+          <button onClick={() => navigate('/')} className='dark:text-gray-400 text-gray-900 font-["Poppins"] font-[300] hover:text-gray-400 duration-100'><span className='relative top-[1px]'>&lt;</span> voltar</button>
           <h1 className='dark:text-gray-200 text-gray-600 sm:text-4xl text-xl font-["Poppins"] font-[500]'>{author}</h1>
         </div>
 
