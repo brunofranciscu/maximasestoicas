@@ -47,7 +47,9 @@ O componente Author exibe as frases de um autor específico. Ele utiliza os segu
  - react-share: Biblioteca usada para os botões de compartilhamento.
 
 ### Pagination.jsx
-O componente Pagination permite a navegação entre diferentes páginas de frases. Ele calcula o número total de páginas com base no número total de frases e no número de frases por página.
+O componente Pagination permite a navegação entre diferentes páginas de frases. 
+Ele calcula o número total de páginas com base no número total de frases e no número de frases por página.
+Com o layout fixo na vertical facilita tanto para desktop e mobile
 
 ### Como Executar
 Para executar o projeto localmente:
