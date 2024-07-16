@@ -1,16 +1,58 @@
 import { useState, useEffect } from 'react';
 import { FacebookShareButton, TwitterShareButton, WhatsappShareButton, TelegramShareButton, LinkedinShareButton, RedditShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, TelegramIcon, LinkedinIcon, RedditIcon, } from 'react-share';
 import { Link } from 'react-router-dom';
+import TextoAudio from './TextoAudio';
+import AudioWaves from './AudioWaves';
+
 
 export default function App() {
   const [frases, setFrases] = useState([]);
   const [fraseAtual, setFraseAtual] = useState({ text: '', author: '', id:'' });
   const [show, setShow] = useState(false)
-  
+  const [blob, setBlob] = useState(null)
+  const [textou, setTextou] = useState(false);
+  const api1 = '2167e436442c988625c4a5cd6548befc';
+
+  const [playPause, setPlayPause] = useState(true);
   const itemsMenu = new Set()
   frases.forEach(item => itemsMenu.add(item.author))
   const menu = Array.from(itemsMenu);
   
+
+  const progress = async () => {
+    const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/pNInz6obpgDQGcFmaJgB`, settings);
+    const result = await response.blob();
+    setBlob(URL.createObjectURL(result));
+  };
+
+  const settings = {
+    method: 'POST',
+    headers: { "Accept": "audio/mpeg", "Content-Type": "application/json", "xi-api-key": api1 },
+    body: JSON.stringify({
+      "text": fraseAtual.text,
+      "model_id": "eleven_multilingual_v1",
+      "voice_settings": {
+        "stability": 0.5,
+        "similarity_boost": 0.5
+      }
+    })
+  };
+
+  const tocar = () => {
+    if (!textou) {
+      progress();
+      setTextou(true);
+    } else {
+      setPlayPause(false);
+      document.querySelector('audio').play();
+    }
+  };
+
+  const pausar = () => {
+    setPlayPause(true);
+    document.querySelector('audio').pause();
+  };
+
   useEffect(() => {
     const carregarFrases = async () => {
       const data = await fetch('./frases.json');
@@ -66,9 +108,12 @@ export default function App() {
                       {allButtons}
                   </div>  
                 </div>
+                <TextoAudio texto={fraseAtual.text} setBlob={setBlob} tocar={tocar} pausar={pausar} playPause={playPause} setPlayPause={setPlayPause}/>
+                
               </div>
+              
           )}
-              <div className="absolute bottom-2 grid place-items-center w-full">
+              <div className="absolute top-2 grid place-items-center w-full">
                 <nav>
                   <ul className='flex gap-10'> 
                     {menu.map((item,index) => 
@@ -82,10 +127,14 @@ export default function App() {
                         <div className='absolute right-0 bottom-4 shadow bg-gray-100 rounded-lg px-5 py-2'>
                           envie o autor e a máxima para o email: <a href='mailto:bruno.f.c@icloud.com'>bruno.f.c@icloud.com</a>
                         </div>}
-                    <button onClick={()=> setShow(show ? false : true)}>conhece mais autores?</button>
+                    <button onClick={()=> setShow(show ? false : true)} className='dark:text-gray-400 dark:hover:text-gray-100 text-gray-500 hover:text-gray-800'>
+                      conhece mais autores?
+                    </button>
                   </small>
                 </nav>
               </div>
+
+              <AudioWaves blob={blob} />
         </div>
     );
 }
