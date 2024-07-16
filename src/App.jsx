@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { FacebookShareButton, TwitterShareButton, WhatsappShareButton, TelegramShareButton, LinkedinShareButton, RedditShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, TelegramIcon, LinkedinIcon, RedditIcon, } from 'react-share';
 import { Link } from 'react-router-dom';
 import TextoAudio from './TextoAudio';
@@ -11,18 +11,22 @@ export default function App() {
   const [show, setShow] = useState(false)
   const [blob, setBlob] = useState(null)
   const [textou, setTextou] = useState(false);
-  const api1 = '2167e436442c988625c4a5cd6548befc';
-
+  const [duration, setDuration] = useState(0);
+  const audioRef = useRef(null);
+  const [isEnded, setIsEnded] = useState(false);
   const [playPause, setPlayPause] = useState(true);
-  const itemsMenu = new Set()
+
+  const api1 = '2167e436442c988625c4a5cd6548befc';
+  const itemsMenu = new Set();
+
   frases.forEach(item => itemsMenu.add(item.author))
   const menu = Array.from(itemsMenu);
   
-
   const progress = async () => {
     const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/pNInz6obpgDQGcFmaJgB`, settings);
     const result = await response.blob();
     setBlob(URL.createObjectURL(result));
+    setIsEnded(false)
   };
 
   const settings = {
@@ -40,18 +44,14 @@ export default function App() {
 
   const tocar = () => {
     if (!textou) {
-      progress();
       setTextou(true);
+      setTimeout(()=>{document.querySelector('audio').play()},300)      
     } else {
-      setPlayPause(false);
       document.querySelector('audio').play();
     }
   };
 
-  const pausar = () => {
-    setPlayPause(true);
-    document.querySelector('audio').pause();
-  };
+  const pausar = () => document.querySelector('audio').pause()
 
   useEffect(() => {
     const carregarFrases = async () => {
@@ -108,7 +108,7 @@ export default function App() {
                       {allButtons}
                   </div>  
                 </div>
-                <TextoAudio texto={fraseAtual.text} setBlob={setBlob} tocar={tocar} pausar={pausar} playPause={playPause} setPlayPause={setPlayPause}/>
+                <TextoAudio texto={fraseAtual.text} setBlob={setBlob} tocar={tocar} pausar={pausar} progress={progress} blob={blob} isEnded={isEnded} setPlayPause={setPlayPause} playPause={playPause}/>
                 
               </div>
               
@@ -134,7 +134,7 @@ export default function App() {
                 </nav>
               </div>
 
-              <AudioWaves blob={blob} />
+              <AudioWaves blob={blob} duration={duration} setDuration={setDuration} audioRef={audioRef} setIsEnded={setIsEnded} setPlayPause={setPlayPause}/>
         </div>
     );
 }
