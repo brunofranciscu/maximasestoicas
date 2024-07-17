@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from 'react';
 import { FacebookShareButton, TwitterShareButton, WhatsappShareButton, TelegramShareButton, LinkedinShareButton, RedditShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, TelegramIcon, LinkedinIcon, RedditIcon, } from 'react-share';
 import { Link } from 'react-router-dom';
-import TextoAudio from './TextoAudio';
-import AudioWaves from './AudioWaves';
+import TextoAudio from './TextoAudio.jsx';
+import AudioWaves from './AudioWaves.jsx';
 import { Analytics } from "@vercel/analytics/react";
 
 
