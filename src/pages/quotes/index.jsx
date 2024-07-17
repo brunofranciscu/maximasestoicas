@@ -10,7 +10,7 @@ export default function Quotes() {
   const quote = quotes.quotes.find(q => q.id === Number(id));
   const navigate = useNavigate()
   const [blob, setBlob] = useState(null)
-  const api1 = '2167e436442c988625c4a5cd6548befc';
+  const api1 = 'f7333e903edf9a082fef5585c547e03b';
   const [isEnded, setIsEnded] = useState(false);
   const [playPause, setPlayPause] = useState(true);
   const [textou, setTextou] = useState(false)
@@ -50,13 +50,6 @@ export default function Quotes() {
       }
     })
   };
-  const progress = async () => {
-    const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/pNInz6obpgDQGcFmaJgB`, settings);
-    const result = await response.blob();
-    setBlob(URL.createObjectURL(result));
-    setIsEnded(false)
-  };
-
   const tocar = () => {
     if (!textou) {
       setTextou(true);
@@ -65,14 +58,16 @@ export default function Quotes() {
       document.querySelector('audio').play();
     }
   };
-
   const pausar = () => document.querySelector('audio').pause()
+  const progress = async () => {
+    const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/pNInz6obpgDQGcFmaJgB`, settings);
+    const result = await response.blob();
+    setBlob(URL.createObjectURL(result));
+    setIsEnded(false)
+  };
+
   const shareUrl = window.location.origin.toString();
 
-
-
-
-  
   return (
     <div className='h-[100dvh] w-full relative grid place-content-center bg-gray-200 dark:bg-gray-800 px-5'>
       
