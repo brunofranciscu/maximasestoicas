@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import TextoAudio from './TextoAudio';
 import AudioWaves from './AudioWaves';
 
-
 export default function App() {
   const [frases, setFrases] = useState([]);
   const [fraseAtual, setFraseAtual] = useState({ text: '', author: '', id:'' });
@@ -15,8 +14,7 @@ export default function App() {
   const audioRef = useRef(null);
   const [isEnded, setIsEnded] = useState(false);
   const [playPause, setPlayPause] = useState(true);
-
-  const api1 = '2167e436442c988625c4a5cd6548befc';
+  const api1 = 'f7333e903edf9a082fef5585c547e03b';
   const itemsMenu = new Set();
 
   frases.forEach(item => itemsMenu.add(item.author))
@@ -90,9 +88,8 @@ export default function App() {
     );
   });
 
-
   return (
-        <div className='h-[100dvh] w-full relative grid place-content-center bg-gray-200 dark:bg-gray-800 px-5'>
+        <div className='h-screen w-full relative grid place-items-center bg-gray-200 dark:bg-gray-800 px-5'>
           {fraseAtual.text && (
               <div className='flex flex-col gap-1 justify-center items-center animate-[opacity_.8s_linear] bg-gray-200 dark:bg-gray-800'>
                   <h1 className='font-["Poppins"] font-[500] sm:text-3xl text-2xl leading-10 max-w-[1300px] text-center text-balance text-gray-600 dark:text-gray-200'>
@@ -108,8 +105,7 @@ export default function App() {
                       {allButtons}
                   </div>  
                 </div>
-                <TextoAudio texto={fraseAtual.text} setBlob={setBlob} tocar={tocar} pausar={pausar} progress={progress} blob={blob} isEnded={isEnded} setPlayPause={setPlayPause} playPause={playPause}/>
-                
+                <div className='md:-translate-y-8 translate-y-12 mx-auto'><TextoAudio setBlob={setBlob} tocar={tocar} pausar={pausar} progress={progress} blob={blob} isEnded={isEnded} setPlayPause={setPlayPause} playPause={playPause}/></div>                
               </div>
               
           )}
@@ -124,7 +120,7 @@ export default function App() {
                   </ul>
                   <small className='absolute right-5 bottom-0 text-xs hidden sm:block'>
                     {show && 
-                        <div className='absolute right-0 bottom-4 shadow bg-gray-100 rounded-lg px-5 py-2'>
+                        <div className='absolute right-0 top-5 shadow bg-gray-100 rounded-lg px-5 py-2'>
                           envie o autor e a máxima para o email: <a href='mailto:bruno.f.c@icloud.com'>bruno.f.c@icloud.com</a>
                         </div>}
                     <button onClick={()=> setShow(show ? false : true)} className='dark:text-gray-400 dark:hover:text-gray-100 text-gray-500 hover:text-gray-800'>
@@ -136,5 +132,5 @@ export default function App() {
 
               <AudioWaves blob={blob} duration={duration} setDuration={setDuration} audioRef={audioRef} setIsEnded={setIsEnded} setPlayPause={setPlayPause}/>
         </div>
-    );
+    )
 }

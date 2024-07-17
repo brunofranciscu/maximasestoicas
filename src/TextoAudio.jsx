@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 export default function TextoAudio ({ tocar, pausar, blob, progress, isEnded, playPause, setPlayPause }) {
   const pauseIcon = `<svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"><path d="M8 5V19M16 5V19" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
@@ -7,28 +7,28 @@ export default function TextoAudio ({ tocar, pausar, blob, progress, isEnded, pl
   const loadSpin = `<svg width="20px" height="20px" viewBox="0 0 16 16" fill="none" class="hds-flight-icon--animation-loading"><g fill="#000000" fill-rule="evenodd" clip-rule="evenodd"><path d="M8 1.5a6.5 6.5 0 100 13 6.5 6.5 0 000-13zM0 8a8 8 0 1116 0A8 8 0 010 8z" opacity=".2"/><path d="M7.25.75A.75.75 0 018 0a8 8 0 018 8 .75.75 0 01-1.5 0A6.5 6.5 0 008 1.5a.75.75 0 01-.75-.75z"/></g></svg>`
   
   const [loading, setLoading] = useState(false)
- 
+  
   return (
-    <div className="max-w-[960px] mx-auto flex flex-col -translate-y-6 h-8">
+    <div className="max-w-[960px] flex flex-col h-8">
 
         {playPause && !blob && (
           <button onClick={() => { progress(), setLoading(true), setPlayPause(true) }} 
               dangerouslySetInnerHTML={{__html: loading ? loadSpin : hasVoice  + ' clique para ouvir' }}
-              className={`${loading ? 'animate-spin' : ''} dark:text-gray-400 dark:hover:text-gray-100 text-gray-700 hover:text-gray-500 flex items-center gap-2 [&_svg]:stroke-gray-500 hover:[&_svg]:stroke-gray-100 duration-200 transition-all`}>
+              className={`${loading ? 'animate-spin' : ''} dark:text-gray-300 dark:hover:text-gray-100 text-gray-700 hover:text-gray-500 flex items-center gap-2 dark:[&_svg]:invert hover:[&_svg]:stroke-gray-100 duration-200 transition-all`}>
           </button>
         )}
 
       <div className="flex justify-between">
         {playPause && blob && (
           <button onClick={() => {tocar(), setPlayPause(false)}} 
-                className="dark:text-gray-400 dark:hover:text-gray-100 text-gray-700 hover:text-gray-500 [&_svg]:stroke-gray-500 hover:[&_svg]:stroke-gray-100 duration-200 transition-all"
+                className="dark:text-gray-400 dark:hover:text-gray-100 text-gray-700 hover:text-gray-500 [&_svg]:stroke-gray-500 dark:hover:[&_svg]:stroke-gray-200 hover:[&_svg]:stroke-gray-700 duration-200 transition-all"
                 dangerouslySetInnerHTML={{ __html: playIcon }}>
           </button>
         )}
 
         {!playPause && isEnded && (
           <button onClick={() =>{ pausar(), setPlayPause(true) }} 
-                className="dark:text-gray-400 dark:hover:text-gray-100 text-gray-700 hover:text-gray-500 [&_svg]:stroke-gray-500 hover:[&_svg]:stroke-gray-100 duration-200 transition-all"
+                className="dark:text-gray-400 dark:hover:text-gray-100 text-gray-700 hover:text-gray-500 [&_svg]:stroke-gray-500 dark:hover:[&_svg]:stroke-gray-200 hover:[&_svg]:stroke-gray-700 duration-200 transition-all"
                 dangerouslySetInnerHTML={{ __html: pauseIcon }}>
           </button>
         )}

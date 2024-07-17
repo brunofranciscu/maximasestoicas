@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import quotes from '../../assets/frases.json';
 import Pagination from '../../Pagination';
 import { FacebookShareButton, TwitterShareButton, WhatsappShareButton, TelegramShareButton, LinkedinShareButton, RedditShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, TelegramIcon, LinkedinIcon, RedditIcon, } from 'react-share';
@@ -35,7 +35,9 @@ const Author = () => {
 
         {currentQuotes.map((quote, index) => (
           <div key={`${index}-${quote.id}`} className='py-5 quote [&:last-of-type_hr]:opacity-0'>
-            <h1 className='dark:text-gray-300 text-gray-700 font-["Poppins"] font-[400] sm:text-2xl text-lg leading-none'>"{quote.text}"</h1>
+            <Link to={`${shareUrl}/quotes/${quote.id}`}>
+              <h1 className='dark:text-gray-300 text-gray-700 font-["Poppins"] font-[400] sm:text-2xl text-lg leading-none hover:dark:text-gray-100 hover:text-gray-500 duration-100'>"{quote.text}"</h1>
+            </Link>
 
             <div className='flex justify-between pt-5'>
               <h2 className='dark:text-gray-300 text-gray-700 font-["Poppins"] font-[200]'>- {quote.author}</h2> 
@@ -82,7 +84,7 @@ const Author = () => {
         }
       </div>
     </div>
-  );
+  )
 };
 
 export default Author;
