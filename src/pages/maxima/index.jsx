@@ -76,7 +76,7 @@ export default function Maxima() {
       
       <div className="flex py-5 justify-between flex-col md:flex-row items-center gap-5">
         <h2 className='text-sm font-["Poppins"] sm:w-[200px] w-full text-center leading-none self-center text-gray-600 dark:text-gray-400 hover:font-bold duration-100' title={`ver todas as maximas do ${quote.author}`}>
-          <Link to={`${shareUrl}/author/${quote.author}`}>- {quote.author}</Link>
+          <Link to={`${shareUrl}/autor/${quote.author}`}>- {quote.author}</Link>
         </h2>
         <TextoAudio  setBlob={setBlob} tocar={tocar} pausar={pausar} progress={progress} blob={blob} isEnded={isEnded} setPlayPause={setPlayPause} playPause={playPause} />
       </div>

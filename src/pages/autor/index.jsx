@@ -35,7 +35,7 @@ const Autor = () => {
 
         {currentQuotes.map((quote, index) => (
           <div key={`${index}-${quote.id}`} className='py-5 quote [&:last-of-type_hr]:opacity-0'>
-            <Link to={`${shareUrl}/quotes/${quote.id}`}>
+            <Link to={`${shareUrl}/maxima/${quote.id}`}>
               <h1 className='dark:text-gray-300 text-gray-700 font-["Poppins"] font-[400] sm:text-2xl text-lg leading-none hover:dark:text-gray-100 hover:text-gray-500 duration-100'>"{quote.text}"</h1>
             </Link>
 
@@ -43,27 +43,27 @@ const Autor = () => {
               <h2 className='dark:text-gray-300 text-gray-700 font-["Poppins"] font-[200]'>- {quote.author}</h2> 
               
               <div className='flex'>
-                <FacebookShareButton url={`${shareUrl}/quotes/${quote.id}`} quote={quote.text} className='opacity-45 hover:opacity-100 duration-100 dark:invert-0 invert'>
+                <FacebookShareButton url={`${shareUrl}/maxima/${quote.id}`} quote={quote.text} className='opacity-45 hover:opacity-100 duration-100 dark:invert-0 invert'>
                   <FacebookIcon size={25} bgStyle={{ fill: 'transparent' }} iconFillColor={'white'} />
                 </FacebookShareButton>
 
-                <TwitterShareButton url={`${shareUrl}/quotes/${quote.id}`} title={quote.text} className='opacity-45 hover:opacity-100 duration-100 dark:invert-0 invert'>
+                <TwitterShareButton url={`${shareUrl}/maxima/${quote.id}`} title={quote.text} className='opacity-45 hover:opacity-100 duration-100 dark:invert-0 invert'>
                   <TwitterIcon size={25} bgStyle={{ fill: 'transparent' }} iconFillColor={'white'} />
                 </TwitterShareButton>
 
-                <WhatsappShareButton url={`${shareUrl}/quotes/${quote.id}`} title={quote.text} className='opacity-45 hover:opacity-100 duration-100 dark:invert-0 invert'>
+                <WhatsappShareButton url={`${shareUrl}/maxima/${quote.id}`} title={quote.text} className='opacity-45 hover:opacity-100 duration-100 dark:invert-0 invert'>
                   <WhatsappIcon size={25} bgStyle={{ fill: 'transparent' }} iconFillColor={'white'} />
                 </WhatsappShareButton>
 
-                <TelegramShareButton url={`${shareUrl}/quotes/${quote.id}`} title={quote.text} className='opacity-45 hover:opacity-100 duration-100 dark:invert-0 invert'>
+                <TelegramShareButton url={`${shareUrl}/maxima/${quote.id}`} title={quote.text} className='opacity-45 hover:opacity-100 duration-100 dark:invert-0 invert'>
                   <TelegramIcon size={25} bgStyle={{ fill: 'transparent' }} iconFillColor={'white'} />
                 </TelegramShareButton>
 
-                <LinkedinShareButton url={`${shareUrl}/quotes/${quote.id}`} title={quote.text} className='opacity-45 hover:opacity-100 duration-100 dark:invert-0 invert'>
+                <LinkedinShareButton url={`${shareUrl}/maxima/${quote.id}`} title={quote.text} className='opacity-45 hover:opacity-100 duration-100 dark:invert-0 invert'>
                   <LinkedinIcon size={25} bgStyle={{ fill: 'transparent' }} iconFillColor={'white'} />
                 </LinkedinShareButton>
 
-                <RedditShareButton url={`${shareUrl}/quotes/${quote.id}`} title={quote.text} className='opacity-45 hover:opacity-100 duration-100 dark:invert-0 invert'>
+                <RedditShareButton url={`${shareUrl}/maxima/${quote.id}`} title={quote.text} className='opacity-45 hover:opacity-100 duration-100 dark:invert-0 invert'>
                   <RedditIcon size={25} bgStyle={{ fill: 'transparent' }} iconFillColor={'white'} />
                 </RedditShareButton>          
               </div>
