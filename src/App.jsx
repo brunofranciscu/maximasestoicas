@@ -112,10 +112,10 @@ export default function App() {
   return (
         <div className='h-screen w-full relative grid place-items-center bg-gray-200 dark:bg-gray-800 px-5'>
 
-          <button dangerouslySetInnerHTML={{__html:savedIcon}} title="ver salvos" style={{left:viewSaved ? window.innerWidth < 770 ? '90%' :'410px' : '20px'}}
-                  className='stroke-gray-500 hover:brightness-150 fill-gray-500 duration-75 absolute top-5 left-5 z-[999999]' 
-                  onClick={()=> setViewSaved(prevViewSaved => !prevViewSaved)}>
-          </button>
+              <button dangerouslySetInnerHTML={{__html:savedIcon}} title="ver salvos" style={{left:viewSaved ? window.innerWidth < 770 ? '90%' :'410px' : '20px'}}
+                      className='stroke-gray-500 hover:brightness-150 fill-gray-500 duration-75 absolute top-5 left-5 z-[999999]' 
+                      onClick={()=> setViewSaved(prevViewSaved => !prevViewSaved)}>
+              </button>
 
               {viewSaved && 
                 <ul className='fixed left-0 md:w-[450px] w-full bg-gray-200 dark:bg-gray-800/95 shadow-2xl h-full z-[999998] p-12 overflow-y-auto flex flex-col gap-8 salvos backdrop-blur-sm top-0'>
@@ -131,8 +131,8 @@ export default function App() {
                                       </button>
 
                                       <div className='flex flex-col'>
-                                        <small className='text-[].6rem block leading-none text-gray-400/50' onClick={() => navigate('/maxima/'+key)}> - {frase.author}</small>
-                                          "{frase.text}"
+                                        <small className='text-[].6rem block leading-none text-gray-400/50'> - {frase.author}</small>
+                                        <span onClick={() => navigate('/maxima/'+key)}>"{frase.text}"</span>
                                       </div>
                                     </li>
                             ))
