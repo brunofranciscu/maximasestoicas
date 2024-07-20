@@ -1,17 +1,19 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import App from '../App';
-import Quotes from '../pages/quotes/index';
-import Author from '../pages/author/index';
-import PrivacyPolicy from '../pages/privacy-policy';
+import Maxima from '../pages/maxima/index';
+import Autor from '../pages/autor/index';
+import PoliticaPrivacidade from '../pages/privacy-policy';
+import Sobre from '../pages/sobre';
 
 export default function Rotas(){
     return(
         <BrowserRouter>
             <Routes>
                 <Route path="/" element={<App/>}/>
-                <Route path="/quotes/:id" element={<Quotes/>} />
-                <Route path="/author/:author" element={<Author/>} />
-                <Route path="/PrivacyPolicy" element={<PrivacyPolicy/>} />
+                <Route path="/maxima/:id" element={<Maxima/>} />
+                <Route path="/autor/:author" element={<Autor/>} />
+                <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade/>} />
+                <Route path="/sobre" element={<Sobre/>} />
             </Routes>
         </BrowserRouter>
     )

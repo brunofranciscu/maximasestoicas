@@ -5,7 +5,7 @@ import Pagination from '../../Pagination';
 import { FacebookShareButton, TwitterShareButton, WhatsappShareButton, TelegramShareButton, LinkedinShareButton, RedditShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, TelegramIcon, LinkedinIcon, RedditIcon, } from 'react-share';
 import { useNavigate } from 'react-router-dom';
 
-const Author = () => {
+const Autor = () => {
   const { author } = useParams();
   const [pagina, setPagina] = useState(1);
   const [quotesPerPage] = useState(15);
@@ -87,4 +87,4 @@ const Author = () => {
   )
 };
 
-export default Author;
+export default Autor;

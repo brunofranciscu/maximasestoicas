@@ -1,11 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
 import quotes from '../../assets/frases.json'
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import TextoAudio from './../../TextoAudio.jsx'
+import TextoAudio from '../../TextoAudio.jsx'
 import AudioSpectrum from 'react-audio-spectrum';
 
 
-export default function Quotes() {
+export default function Maxima() {
   const { id } = useParams();
   const quote = quotes.quotes.find(q => q.id === Number(id));
   const navigate = useNavigate()
