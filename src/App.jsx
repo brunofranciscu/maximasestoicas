@@ -114,12 +114,12 @@ export default function App() {
               <Analytics/>
               <Helmet>
                 <title>Máximas Estóicas</title>
-                <meta property="og:title" content="Home Page" />
+                <meta property="og:title" content="Máximas Estóicas" />
                 <meta property="og:description" content="uma coletânia de máximas estóicas de vários autores." />
                 <meta property="og:image" content="./og.jpg" />
                 <meta property="og:url" content="https://maximasestoicas.vercel.app" />
               </Helmet>
-              
+
               <button dangerouslySetInnerHTML={{__html:viewSaved ? 'X' : savedIcon}} title="ver salvos" style={{left:viewSaved ? window.innerWidth < 770 ? '90%' :'410px' : '20px'}}
                       className='stroke-gray-500 hover:brightness-150 fill-gray-500 absolute top-5 left-5 z-[999999]' 
                       onClick={()=> setViewSaved(prevViewSaved => !prevViewSaved)}>

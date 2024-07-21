@@ -85,16 +85,15 @@ export default function Maxima() {
           return updtSalvas;
       });
   };
-  const desacentuar = (busca) => { return busca.normalize('NFD').replace(/[\u0300-\u036f]/g, '')}
 
   return (
     <div className='h-[100dvh] w-full relative grid place-content-center bg-gray-200 dark:bg-gray-800 px-5'>
         <Helmet>
           <title>Máximas Estóicas</title>
-          <meta property="og:title" content="Home Page" />
+          <meta property="og:title" content={`Máximas do ${quote.author}`} />
           <meta property="og:description" content="uma coletânia de máximas estóicas de vários autores." />
-          <meta property="og:image" content={`./og-${desacentuar(author).split('-').join('').toLowerCase()}.jpg`} />
-          <meta property="og:url" content={`https://maximasestoicas.vercel.app/${author}`} />
+          <meta property="og:image" content="./og.jpg" />
+          <meta property="og:url" content={`https://maximasestoicas.vercel.app/${quote.author}`} />
         </Helmet>
         <button dangerouslySetInnerHTML={{__html:viewSaved ? 'X' : savedIcon}} title="ver salvos" style={{left:viewSaved ? window.innerWidth < 770 ? '90%' :'410px' : '20px'}}
                 className='stroke-gray-500 hover:brightness-150 fill-gray-500 absolute top-5 left-5 z-[999999]' 
