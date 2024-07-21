@@ -47,15 +47,11 @@ const Autor = () => {
     <div className='w-full relative grid place-content-center bg-gray-200 dark:bg-gray-800 py-20' style={{height:filteredQuotes.length < quotesPerPage ? '100dvh' : '100%'}}>
 
         <Helmet>
-          <title>Máximas Estóicas</title>
-          <meta property="og:title" content={author} />
-          <meta property="og:description" content={`Conheça mais máximas do ${author}.`} />
-          <meta property="og:image" content={`./og.jpg`} />
-          <meta property="og:url" content={`https://maximasestoicas.vercel.app/${author}`} />
+          <title>Máximas do {author}</title>
         </Helmet>
 
         <button dangerouslySetInnerHTML={{__html:viewSaved ? 'X' : savedIcon}} title="ver salvos" style={{right:viewSaved ? window.innerWidth < 770 ? '90%' :'410px' : '20px'}} key={'button'}
-                className='stroke-gray-500 hover:brightness-150 fill-gray-500 absolute top-5 right-5 z-[999999]' 
+                className='stroke-gray-500 hover:brightness-150 fill-gray-500 absolute top-5 right-5 z-[999999] text-gray-600 dark:text-gray-200' 
                 onClick={()=> setViewSaved(prevViewSaved => !prevViewSaved)}>
         </button>
 

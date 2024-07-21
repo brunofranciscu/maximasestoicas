@@ -112,16 +112,8 @@ export default function App() {
   return (
         <div className='h-screen w-full relative grid place-items-center bg-gray-200 dark:bg-gray-800 px-5'>
               <Analytics/>
-              <Helmet>
-                <title>Máximas Estóicas</title>
-                <meta property="og:title" content="Máximas Estóicas" />
-                <meta property="og:description" content="uma coletânia de máximas estóicas de vários autores." />
-                <meta property="og:image" content="./og.jpg" />
-                <meta property="og:url" content="https://maximasestoicas.vercel.app" />
-              </Helmet>
-
               <button dangerouslySetInnerHTML={{__html:viewSaved ? 'X' : savedIcon}} title="ver salvos" style={{left:viewSaved ? window.innerWidth < 770 ? '90%' :'410px' : '20px'}}
-                      className='stroke-gray-500 hover:brightness-150 fill-gray-500 absolute top-5 left-5 z-[999999]' 
+                      className='stroke-gray-500 hover:brightness-150 fill-gray-500 absolute top-5 left-5 z-[999999] text-gray-600 dark:text-gray-200' 
                       onClick={()=> setViewSaved(prevViewSaved => !prevViewSaved)}>
               </button>
 
