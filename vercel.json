@@ -1,9 +1,7 @@
 {
-    "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/index.html"
-      }
-    ]
-  }
-  
+  "rewrites": [
+    { "source": "/autor/:author", "destination": "/api/og-tags" },
+    { "source": "/autor/:author/maxima/:id", "destination": "/api/og-tags" },
+    { "source": "/", "destination": "/api/og-tags" }
+  ]
+}
