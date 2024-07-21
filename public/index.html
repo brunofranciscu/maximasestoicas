@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="ptbr">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/concise.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <meta name="description" content="uma coletânia de máximas estóicas de vários autores.">
+    <meta name="google-adsense-account" content="ca-pub-8836368214689056">
+    <meta name="google-site-verification" content="cu4zW65MNUcMrhgj2Mp_9PVnwzHNjnmPt_aHraaLNZQ" />
+    <title>Máximas Estóicas | uma miríade das melhores frases de diversos autores.</title>
+    <meta property="og:title" content="$OG_TITLE" />
+    <meta property="og:description" content="$OG_DESCRIPTION" />
+    <meta property="og:image" content="$OG_IMAGE" />
+    <meta property="og:url" content="$OG_URL" />
+  </head>
+  <body class="bg-gray-200 dark:bg-gray-800">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>  
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', event => { document.querySelector('html').className = event.matches ? "dark" : "light" })
+      document.querySelector('html').className = window.matchMedia('(prefers-color-scheme: dark)').matches ? "dark" : "light";
+    </script>
+  </body>
+</html>
