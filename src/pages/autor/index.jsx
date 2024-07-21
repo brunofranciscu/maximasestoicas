@@ -49,8 +49,8 @@ const Autor = () => {
         <Helmet>
           <title>Máximas Estóicas</title>
           <meta property="og:title" content="Home Page" />
-          <meta property="og:description" content="uma coletânia de máximas estóicas de vários autores." />
-          <meta property="og:image" content={`./og-${desacentuar(author).split('-').join('').toLowerCase()}.jpg`} />
+          <meta property="og:description" content={`Conheça mais máximas do ${author}.`} />
+          <meta property="og:image" content={`./og.jpg`} />
           <meta property="og:url" content={`https://maximasestoicas.vercel.app/${author}`} />
         </Helmet>
 
