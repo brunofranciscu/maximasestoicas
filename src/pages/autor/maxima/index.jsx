@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
-import quotes from '../../assets/frases.json'
+import quotes from '../../../assets/frases.json'
 import { Link, useNavigate, useParams } from 'react-router-dom';
-import TextoAudio from '../../TextoAudio.jsx'
+import TextoAudio from '../../../components/TextoAudio.jsx'
 import AudioSpectrum from 'react-audio-spectrum';
-
+import { Helmet } from 'react-helmet-async';
 
 export default function Maxima() {
   const { id } = useParams();
@@ -85,11 +85,19 @@ export default function Maxima() {
           return updtSalvas;
       });
   };
-  
+  const desacentuar = (busca) => { return busca.normalize('NFD').replace(/[\u0300-\u036f]/g, '')}
+
   return (
     <div className='h-[100dvh] w-full relative grid place-content-center bg-gray-200 dark:bg-gray-800 px-5'>
-        <button dangerouslySetInnerHTML={{__html:savedIcon}} title="ver salvos" style={{left:viewSaved ? window.innerWidth < 770 ? '90%' :'410px' : '20px'}}
-                className='stroke-gray-500 hover:brightness-150 fill-gray-500 duration-75 absolute top-5 left-5 z-[999999]' 
+        <Helmet>
+          <title>Máximas Estóicas</title>
+          <meta property="og:title" content="Home Page" />
+          <meta property="og:description" content="uma coletânia de máximas estóicas de vários autores." />
+          <meta property="og:image" content={`./og-${desacentuar(author).split('-').join('').toLowerCase()}.jpg`} />
+          <meta property="og:url" content={`https://maximasestoicas.vercel.app/${author}`} />
+        </Helmet>
+        <button dangerouslySetInnerHTML={{__html:viewSaved ? 'X' : savedIcon}} title="ver salvos" style={{left:viewSaved ? window.innerWidth < 770 ? '90%' :'410px' : '20px'}}
+                className='stroke-gray-500 hover:brightness-150 fill-gray-500 absolute top-5 left-5 z-[999999]' 
                 onClick={()=> setViewSaved(prevViewSaved => !prevViewSaved)}>
         </button>
 
@@ -106,7 +114,7 @@ export default function Maxima() {
                   </button>
                   <div className='flex flex-col'>
                     <small className='text-[.6rem] block leading-none text-gray-400/50'> - {frase.author}</small>
-                    <span onClick={() => navigate('/maxima/' + key)}>"{frase.text}"</span>
+                    <span onClick={() => navigate(`/autor/${frase.author.replace(' ','-').toLowerCase()}/maxima/${frase.id}`)}>"{frase.text}"</span>
                   </div>
                 </li>)
               ))
@@ -114,12 +122,14 @@ export default function Maxima() {
           }
         </ul>
       }
-      <h1 className='font-["Poppins"] font-[500] sm:text-4xl text-2xl leading-10 max-w-[1300px] text-center text-balance text-gray-600 dark:text-gray-300'>"{quote.text}"</h1>
       
+      <h1 className='font-["Poppins"] font-[500] sm:text-4xl text-2xl leading-10 max-w-[1300px] text-center text-balance text-gray-600 dark:text-gray-300'>
+        "{quote.text}"
+      </h1>
       
       <div className="flex py-5 justify-between flex-col md:flex-row items-center gap-5">
         <h2 className='text-sm font-["Poppins"] sm:w-[200px] w-full text-center leading-none self-center text-gray-600 dark:text-gray-400 hover:font-bold duration-100' title={`ver todas as maximas do ${quote.author}`}>
-          <Link to={`${shareUrl}/autor/${quote.author}`}>- {quote.author}</Link>
+          <Link to={`${shareUrl}/autor/${quote.author.split(' ').join('-')}`}>- {quote.author}</Link>
         </h2>
         <TextoAudio  setBlob={setBlob} tocar={tocar} pausar={pausar} progress={progress} blob={blob} isEnded={isEnded} setPlayPause={setPlayPause} playPause={playPause} />
 
@@ -127,7 +137,7 @@ export default function Maxima() {
         {salvas[quote.id] && <button dangerouslySetInnerHTML={{__html:savedIcon}} title="remover dos salvos" className='stroke-gray-500 hover:fill-gray-500 fill-gray-500 duration-100' onClick={()=> salvar(quote.id)}></button>}
       </div>
 
-      <button onClick={() => navigate('/')} className='dark:text-gray-400 text-gray-900 font-["Poppins"] font-[300] hover:text-gray-400 duration-100 absolute bottom-2 left-3'>
+      <button onClick={() => navigate(-1)} className='dark:text-gray-400 text-gray-900 font-["Poppins"] font-[300] hover:text-gray-400 duration-100 absolute bottom-2 left-3'>
         <span className='relative top-[1px]'>&lt;</span> voltar
       </button>
 

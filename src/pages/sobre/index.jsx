@@ -5,7 +5,7 @@ export default function Sobre(){
     return (
         <>
             <header className="max-w-[1000px] mx-auto px-12 [&>h1]:font-[900] [&>h1]:uppercase [&>h1]:text-2xl relative text-gray-700 dark:text-gray-200 pt-28">
-                <button className="absolute left-12 top-12" onClick={()=> navigate('/')}>
+                <button className="absolute left-12 top-12" onClick={()=> navigate(-1)}>
                     <span className='relative top-[1px]'>&lt;</span> voltar
                 </button>
                 <h1 className="font-bold">Projeto Máximas Estoicas</h1> <br />

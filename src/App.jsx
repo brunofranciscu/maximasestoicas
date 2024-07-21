@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { FacebookShareButton, TwitterShareButton, WhatsappShareButton, TelegramShareButton, LinkedinShareButton, RedditShareButton, FacebookIcon, TwitterIcon, WhatsappIcon, TelegramIcon, LinkedinIcon, RedditIcon, } from 'react-share';
 import { Link, useNavigate } from 'react-router-dom';
-import TextoAudio from './TextoAudio.jsx';
-import AudioWaves from './AudioWaves.jsx';
+import TextoAudio from './components/TextoAudio.jsx';
+import AudioWaves from './components/AudioWaves.jsx';
 import { Analytics } from "@vercel/analytics/react";
-
+import { Helmet } from 'react-helmet-async';
 
 export default function App() {
   const [frases, setFrases] = useState([]);
@@ -89,7 +89,7 @@ export default function App() {
   const ShareIconComponent = share.icon;
   
     return (
-      <ShareButtonComponent url={`${url}/maxima/${fraseAtual.id}`} title={fraseAtual.text} key={index}
+      <ShareButtonComponent url={`${url}/autor/${fraseAtual.author.split(' ').join('-').toLowerCase()}/maxima/${fraseAtual.id}`} title={fraseAtual.text} key={index}
                             className='opacity-45 hover:opacity-100 duration-100 dark:invert-0 invert'>
         <ShareIconComponent size={window.innerWidth < 640 ? 25 : 35} bgStyle={{ fill: 'transparent' }} iconFillColor={'white'}/>
       </ShareButtonComponent>
@@ -111,9 +111,17 @@ export default function App() {
     
   return (
         <div className='h-screen w-full relative grid place-items-center bg-gray-200 dark:bg-gray-800 px-5'>
-
-              <button dangerouslySetInnerHTML={{__html:savedIcon}} title="ver salvos" style={{left:viewSaved ? window.innerWidth < 770 ? '90%' :'410px' : '20px'}}
-                      className='stroke-gray-500 hover:brightness-150 fill-gray-500 duration-75 absolute top-5 left-5 z-[999999]' 
+              <Analytics/>
+              <Helmet>
+                <title>Máximas Estóicas</title>
+                <meta property="og:title" content="Home Page" />
+                <meta property="og:description" content="uma coletânia de máximas estóicas de vários autores." />
+                <meta property="og:image" content="./og.jpg" />
+                <meta property="og:url" content="https://maximasestoicas.vercel.app" />
+              </Helmet>
+              
+              <button dangerouslySetInnerHTML={{__html:viewSaved ? 'X' : savedIcon}} title="ver salvos" style={{left:viewSaved ? window.innerWidth < 770 ? '90%' :'410px' : '20px'}}
+                      className='stroke-gray-500 hover:brightness-150 fill-gray-500 absolute top-5 left-5 z-[999999]' 
                       onClick={()=> setViewSaved(prevViewSaved => !prevViewSaved)}>
               </button>
 
@@ -132,7 +140,7 @@ export default function App() {
 
                                       <div className='flex flex-col'>
                                         <small className='text-[].6rem block leading-none text-gray-400/50'> - {frase.author}</small>
-                                        <span onClick={() => navigate('/maxima/'+key)}>"{frase.text}"</span>
+                                        <span onClick={() => navigate(`/autor/${frase.author.split(' ').join('-').toLowerCase()}/maxima/${key}`)}>"{frase.text}"</span>
                                       </div>
                                     </li>
                             ))
@@ -140,18 +148,15 @@ export default function App() {
                       }
                 </ul>
               }
-
-
-        <Analytics/>
           {fraseAtual.text && (
               <div className='flex flex-col gap-1 justify-center items-center animate-[opacity_.8s_linear] bg-gray-200 dark:bg-gray-800'>
-                  <h1 className='font-["Poppins"] font-[500] sm:text-3xl text-2xl leading-10 min-w-[700px] w-full max-w-[1300px] text-center text-balance text-gray-600 dark:text-gray-200'>
+                  <h1 className='font-["Poppins"] font-[500] sm:text-3xl text-2xl leading-10 md:min-w-[700px] min-w-auto !w-full max-w-[1300px] text-center text-balance text-gray-600 dark:text-gray-200'>
                     "{fraseAtual.text}"
                   </h1>
-                <div className='flex sm:justify-between justify-center max-w-[1000px] !w-full items-center flex-col sm:flex-row mt-5 gap-4 sm:gap-0'>
+                <div className='flex sm:justify-between justify-center max-w-[1000px] w-full items-center flex-col sm:flex-row mt-5 gap-4 sm:gap-0'>
   
                   <h2 className='text-sm font-["Poppins"] sm:w-[200px] w-full text-center leading-none self-center text-gray-600 dark:text-gray-400 hover:text-gray-400 duration-100' title={`ver todas as maximas do ${fraseAtual.author}`}>
-                    <Link to={`${url}/autor/${fraseAtual.author}`}>- {fraseAtual.author}</Link>
+                    <Link to={`${url}/autor/${fraseAtual.author.split(' ').join('-')}`}>- {fraseAtual.author}</Link>
                   </h2>
   
                   <div className="links flex w-auto">

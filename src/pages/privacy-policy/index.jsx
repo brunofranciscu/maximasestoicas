@@ -1,17 +1,12 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 
-
 export default function PoliticaPrivacidade(){
-
     const navigate = useNavigate()
-
     return(
         <div className='h-full w-full relative grid place-content-center bg-gray-200 dark:bg-gray-800 px-5 py-20'>
-
-            <div className="max-w-[1000px] mx-auto px-5  [&>h2]:font-[700] [&>h1]:font-[900] [&>h1]:uppercase [&>h1]:text-2xl relative text-gray-700 dark:text-gray-200">
-
-                <button className="absolute left-0 -top-12" onClick={()=>navigate('/')}>
+            <div className="max-w-[1000px] mx-auto px-5 [&>h2]:font-[700] [&>h1]:font-[900] [&>h1]:uppercase [&>h1]:text-2xl relative text-gray-700 dark:text-gray-200">
+                <button className="absolute left-0 -top-12" onClick={()=>navigate(-1)}>
                     <span className='relative top-[1px]'>&lt;</span> voltar
                 </button>
                 
@@ -39,7 +34,6 @@ export default function PoliticaPrivacidade(){
                 <h2>Contato</h2>
                 <p>Se tiver dúvidas sobre esta Política de Privacidade, entre em contato conosco através do e-mail <a href="mailto:bruno.f.c@icloud.com">bruno.f.c@icloud.com</a>.</p>
             </div>
-
         </div>
     )
 }
