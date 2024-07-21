@@ -12,8 +12,8 @@ export default function Rotas() {
         <HelmetProvider>
             <Routes>
                 <Route path="/" element={<App />} />
-                <Route path="/autor/:author/maxima/:id" element={<Maxima />} />
-                <Route path="/autor/:author" element={<Autor />} />
+                <Route path="/autor/:autor/maxima/:id" element={<Maxima />} />
+                <Route path="/autor/:autor" element={<Autor />} />
                 <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
                 <Route path="/sobre" element={<Sobre />} />
             </Routes>
