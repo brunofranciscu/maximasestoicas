@@ -37,14 +37,14 @@ export default function Sobre(){
                         <p>Nossa coleção inclui mais de 1700 máximas que cobrem uma ampla gama de tópicos relacionados à filosofia estoica. 
                            Cada máxima foi cuidadosamente selecionada para oferecer profundidade e clareza, promovendo reflexões significativas.
                            <br /><br />
-                           Para tornar mais acessível e moderno, foi implementado a funcionalidade de <strong className="text-gray-100">Text-to-Speech (TTS)</strong> usando inteligência artificial. 
+                           Para tornar mais acessível e moderno, foi implementado a funcionalidade de <strong className="text-gray-900 dark:text-gray-200">Text-to-Speech (TTS)</strong> usando inteligência artificial. 
                            Agora você pode ouvir as máximas em vez de apenas lê-las, facilitando a absorção do conteúdo em qualquer momento e lugar.
                            <br /><br />
 
                            Convidamos leitores e entusiastas da filosofia a contribuírem para este projeto. <br />
                            Se você conhece outras máximas ou autores estoicos que deveriam ser incluídos, entre em contato conosco pelo email: &nbsp;
-                           <a href="mailto:bruno.f.c@icloud.com"><span className="text-white underline inline-block">bruno.f.c@icloud.com</span></a>, 
-                           ou contribua pelo &nbsp;<Link to={'https://github.com/brunofranciscu/maximasestoicas'}><span className="text-white underline">github</span></Link>.
+                           <a href="mailto:bruno.f.c@icloud.com"><span className="text-gray-900 dark:text-gray-200 underline inline-block">bruno.f.c@icloud.com</span></a>, 
+                           ou contribua pelo &nbsp;<Link to={'https://github.com/brunofranciscu/maximasestoicas'}><span className="text-gray-900 dark:text-gray-200 underline">github</span></Link>.
                            Acredito que a sabedoria cresce quando compartilhada, e estou ansioso para expandir a coleção com a sua ajuda.
                     
                         </p>
@@ -56,7 +56,7 @@ export default function Sobre(){
                     <article >
                         <strong>Política de Privacidade</strong><br />
                         <p>Sua privacidade é importante para nós. Para mais informações, consulte nossa &nbsp;
-                            <Link to="/politica-de-privacidade"><span className="underline text-white">Política de Privacidade</span></Link>.</p>
+                            <Link to="/politica-de-privacidade"><span className="underline text-gray-900 dark:text-gray-200">Política de Privacidade</span></Link>.</p>
                     </article>
         
                     <article >
@@ -64,7 +64,7 @@ export default function Sobre(){
                         <p>
                             Siga-nos no Instagram para atualizações, novas máximas e inspirações diárias. Acesse nosso perfil &nbsp;
                                 <Link to="https://www.instagram.com/maximasestoicas">
-                                    <span className="underline text-white">aqui</span>
+                                    <span className="underline text-gray-900 dark:text-gray-200">aqui</span>
                                 </Link>
                         .</p>
                     </article>

@@ -145,10 +145,10 @@ export default function App() {
         <Analytics/>
           {fraseAtual.text && (
               <div className='flex flex-col gap-1 justify-center items-center animate-[opacity_.8s_linear] bg-gray-200 dark:bg-gray-800'>
-                  <h1 className='font-["Poppins"] font-[500] sm:text-3xl text-2xl leading-10 max-w-[1300px] text-center text-balance text-gray-600 dark:text-gray-200'>
+                  <h1 className='font-["Poppins"] font-[500] sm:text-3xl text-2xl leading-10 min-w-[700px] w-full max-w-[1300px] text-center text-balance text-gray-600 dark:text-gray-200'>
                     "{fraseAtual.text}"
                   </h1>
-                <div className='flex sm:justify-between justify-center max-w-[1000px] w-full items-center flex-col sm:flex-row mt-5 gap-4 sm:gap-0'>
+                <div className='flex sm:justify-between justify-center max-w-[1000px] !w-full items-center flex-col sm:flex-row mt-5 gap-4 sm:gap-0'>
   
                   <h2 className='text-sm font-["Poppins"] sm:w-[200px] w-full text-center leading-none self-center text-gray-600 dark:text-gray-400 hover:text-gray-400 duration-100' title={`ver todas as maximas do ${fraseAtual.author}`}>
                     <Link to={`${url}/autor/${fraseAtual.author}`}>- {fraseAtual.author}</Link>
