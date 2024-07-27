@@ -3,23 +3,23 @@
 ## Este é um aplicativo React simples que exibe frases de autores, com funcionalidades de paginação e compartilhamento. O aplicativo permite visualizar frases por autor, compartilhar cada frase em várias plataformas de mídia social e ouvir as máximas com voz de IA.
 
 ### Funcionalidades
- - ** Exibição de Frases: Exibe frases retiradas de um arquivo JSON.** 
- - ** Paginação: Permite navegação entre diferentes páginas de frases.** 
- - ** Compartilhamento: Cada frase pode ser compartilhada em várias plataformas de mídia social, incluindo Facebook, Twitter, WhatsApp, Telegram, LinkedIn e Reddit.** 
- - ** Página do Autor: Exibe todas as frases de um autor específico.** 
- - ** Ouvir Máximas com Voz de IA: Permite ouvir cada máxima utilizando a API de texto para fala da Eleven Labs.** 
+ - **Exibição de Frases: Exibe frases retiradas de um arquivo JSON. (Utilizava uma api, porém não está mais no ar!!)** 
+ - **Paginação: Permite navegação entre diferentes páginas de frases.** 
+ - **Compartilhamento: Cada frase pode ser compartilhada em várias plataformas de mídia social, incluindo Facebook, Twitter, WhatsApp, Telegram, LinkedIn e Reddit.** 
+ - **Página do Autor: Exibe todas as frases de um autor específico.** 
+ - **Ouvir Máximas com Voz de IA: Permite ouvir cada máxima utilizando a API de texto para fala da Eleven Labs.** 
 
 ### Estrutura do Projeto
- - ** src/assets/frases.json: Arquivo JSON contendo as frases.**
- - ** src/components/Author.js: Componente que exibe as frases de um autor específico com funcionalidades de paginação e compartilhamento.**
- - ** src/components/Pagination.js: Componente de paginação para navegar entre as páginas de frases.**
+ - **src/assets/frases.json: Arquivo JSON contendo as frases.**
+ - **src/components/Author.js: Componente que exibe as frases de um autor específico com funcionalidades de paginação e compartilhamento.**
+ - **src/components/Pagination.js: Componente de paginação para navegar entre as páginas de frases.**
 
 ### Como Funciona
- - ** Carregamento de Dados: As frases são carregadas a partir de um arquivo JSON localizado em src/assets/frases.json.**
- - ** Filtragem por Autor: As frases são filtradas pelo autor com base no parâmetro de URL.**
- - ** Paginação: As frases são paginadas, mostrando um número específico de frases por página.**
- - ** Compartilhamento: Cada frase tem botões de compartilhamento que permitem aos usuários compartilhar a frase em várias plataformas de mídia social.**
- - ** Página do Autor: O aplicativo possui uma página dedicada para cada autor, onde todas as frases desse autor são exibidas.**
+ - **Carregamento de Dados: As frases são carregadas a partir de um arquivo JSON localizado em src/assets/frases.json.**
+ - **Filtragem por Autor: As frases são filtradas pelo autor com base no parâmetro de URL.**
+ - **Paginação: As frases são paginadas, mostrando um número específico de frases por página.**
+ - **Compartilhamento: Cada frase tem botões de compartilhamento que permitem aos usuários compartilhar a frase em várias plataformas de mídia social.**
+ - **Página do Autor: O aplicativo possui uma página dedicada para cada autor, onde todas as frases desse autor são exibidas.**
 Estrutura do JSON
 
 O arquivo JSON frases.json deve ter a seguinte estrutura:
