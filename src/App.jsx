@@ -168,7 +168,7 @@ export default function App() {
                   <ul className='flex gap-10'> 
                     {menu.map((item,index) => 
                         <li className='text-gray-500 hover:text-gray-900 duration-100 dark:text-gray-200 dark:hover:text-gray-50 text-xs' key={index}>
-                            <Link to={`${url}/autor/${item}`}>{item}</Link>
+                            <Link to={`${url}/autor/${item.split(' ').join('-')}`}>{item}</Link>
                         </li> 
                     )} 
                   </ul>
