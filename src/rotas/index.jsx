@@ -1,4 +1,5 @@
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Route, Routes  } from 'react-router-dom';
+import { useState } from 'react';
 import App from '../App';
 import Maxima from '../pages/autor/maxima/index';
 import Autor from '../pages/autor/index';
@@ -7,17 +8,17 @@ import Sobre from '../pages/sobre';
 import { HelmetProvider } from 'react-helmet-async';
 
 export default function Rotas() {
+    const [viewSaved, setViewSaved] = useState(false);
+
     return (
-    <BrowserRouter>
         <HelmetProvider>
             <Routes>
-                <Route path="/" element={<App />} />
-                <Route path="/autor/:author/maxima/:id" element={<Maxima />} />
-                <Route path="/autor/:author" element={<Autor />} />
-                <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade />} />
-                <Route path="/sobre" element={<Sobre />} />
+                <Route path="/" element={<App setViewSaved={setViewSaved} viewSaved={viewSaved}/>} />
+                <Route path="/autor/:author/maxima/:id" element={<Maxima setViewSaved={setViewSaved} viewSaved={viewSaved} />} />
+                <Route path="/autor/:author" element={<Autor setViewSaved={setViewSaved} viewSaved={viewSaved}/>} />
+                <Route path="/politica-de-privacidade" element={<PoliticaPrivacidade setViewSaved={setViewSaved} viewSaved={viewSaved}/>} />
+                <Route path="/sobre" element={<Sobre setViewSaved={setViewSaved} viewSaved={viewSaved}/>} />
             </Routes>
         </HelmetProvider>
-    </BrowserRouter>
-    )
+        )
 }
