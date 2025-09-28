@@ -76,9 +76,9 @@ export default function App({viewSaved, setViewSaved}) {
                   <h1 className='font-["Poppins"] font-[500] sm:text-3xl text-2xl leading-10 md:min-w-[700px] min-w-auto !w-full max-w-[1300px] text-center text-balance text-gray-600 dark:text-gray-200'>
                     "{fraseAtual.text}"
                   </h1>
-                <div className='flex sm:justify-between justify-center max-w-[1000px] w-full items-center flex-col sm:flex-row mt-5 gap-4 sm:gap-0'>
+                <div className='flex sm:justify-end justify-center max-w-[1000px] w-full items-center flex-col sm:flex-row mt-5 gap-4 sm:gap-0'>
   
-                  <h2 className='text-sm font-["Poppins"] sm:w-[200px] w-full text-center leading-none self-center text-gray-600 dark:text-gray-400 hover:text-gray-400 duration-100' title={`ver todas as maximas do ${fraseAtual.author}`}>
+                  <h2 className='text-sm font-["Poppins"] sm:w-[200px] w-full text-center leading-none text-gray-600 dark:text-gray-400 hover:text-gray-400 duration-100' title={`ver todas as maximas do ${fraseAtual.author}`}>
                     <Link to={`${url}/autor/${fraseAtual.author.split(' ').join('-')}`}>- {fraseAtual.author}</Link>
                   </h2>
   
@@ -86,7 +86,7 @@ export default function App({viewSaved, setViewSaved}) {
                       {allButtons}
                       <SaveIcon 
                           title={`Salvar Máxima`} 
-                          className={`[&_*]:duration-100 translate-y-2 ${!salvas[fraseAtual.id] ? '[&_path]:stroke-gray-500 hover:[&_path]:fill-gray-500 [&_path]:fill-none' : '[&_path]:stroke-gray-500 [&_path]:hover:fill-gray-500 [&_path]:fill-gray-500'}`} 
+                          className={`[scale:.8] [&_*]:duration-100 translate-y-2 ${!salvas[fraseAtual.id] ? '[&_path]:stroke-gray-500 hover:[&_path]:fill-gray-500 [&_path]:fill-none' : '[&_path]:stroke-gray-500 [&_path]:hover:fill-gray-500 [&_path]:fill-gray-500'}`} 
                           onClick={()=> salvar(fraseAtual.id)} 
                       />
                   </div>  

@@ -23,10 +23,10 @@ const Pagination = forwardRef(({totalQuotes, quotesPerPage, setPagina, pagina}, 
 };
 
   const isLight = document.documentElement.classList.contains("light")
-
+  console.log(totalQuotes / quotesPerPage)
   return (
     <>
-      <button className='text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 absolute -top-8 font-[900] font-["Poppins"] rotate-90 left-6' onClick={() =>scrollPagination('<')}>&lt;</button>
+     <button className='text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 absolute -top-8 font-[900] font-["Poppins"] rotate-90 left-6' onClick={() =>scrollPagination('<')}>&lt;</button>
 
       <ol className='pagination w-auto items-end flex flex-col overflow-x-scroll [&:has(.active)_.active]:text-white [&:has(.mactive)_.active]:text-gray-900 [&:has(.mactive)_.active]:font-[700] scroll-smooth' ref={divRef}>
         {paginas.map(number => {

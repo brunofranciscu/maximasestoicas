@@ -59,7 +59,6 @@ const TextoAudio = ({ className, frase, autor}) => {
     <>
       <div className={`flex justify-center items-center w-full ${className}`}>
         <audio ref={audioRef} className="hidden" />
-
         {isLoading ? (
           <LoadSpin className="animate-spin rounded-full [&_svg]:h-10 [&_svg]:w-10 " />
           ) : !isPlaying ? (
@@ -68,19 +67,16 @@ const TextoAudio = ({ className, frase, autor}) => {
                          [&_svg]:stroke-gray-500 dark:hover:[&_svg]:stroke-gray-200 hover:[&_svg]:stroke-gray-700 
                          duration-200 transition-all"/>
           </button>
-          
         ) : (
           <button onClick={pauseTTS}>
             <PauseIcon  className="dark:text-gray-400 dark:hover:text-gray-100 text-gray-700 hover:text-gray-500 
                          [&_svg]:stroke-gray-500 dark:hover:[&_svg]:stroke-gray-200 hover:[&_svg]:stroke-gray-700 
                          duration-200 transition-all"/>
-            
           </button>
         )}
       </div>
       <AudioWaves blob={audioUrl} audioRef={audioRef}/>
     </>
-
   );
 };
 

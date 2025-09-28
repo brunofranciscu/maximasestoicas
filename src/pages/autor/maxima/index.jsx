@@ -66,7 +66,7 @@ export default function Maxima({setViewSaved, viewSaved, highlight}) {
       </div>
 
       <div className="flex py-5 justify-center flex-col items-center gap-5 max-w-[1100px] mx-auto w-full">
-        <h2 className='text-sm font-["Poppins"] w-auto text-center leading-none cl:self-end seçf-center text-gray-600 dark:text-gray-400 hover:font-bold duration-100' title={`ver todas as maximas do ${quote.author}`}>
+        <h2 className='text-sm font-["Poppins"] w-auto text-center leading-none cl:self-end self-center text-gray-600 dark:text-gray-400 dark:hover:text-gray-100 hover:text-gray-900 duration-100' title={`ver todas as maximas do ${quote.author}`}>
           <Link to={`${shareUrl}/autor/${quote.author.split(' ').join('-')}`}>- {quote.author}</Link>
         </h2>
       </div>

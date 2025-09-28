@@ -49,7 +49,7 @@ const Autor = () => {
         </Helmet>
 
 
-      <div className='flex flex-col max-w-[1200px] w-full px-16 mx-auto gap-5' key={'title'}>
+      <div className='flex flex-col max-w-[1200px] w-full cl:px-16 px-4 mx-auto gap-5' key={'title'}>
         <div className='flex justify-between'>
           <button onClick={() => navigate(-1)} className='dark:text-gray-400 text-gray-900 font-["Poppins"] font-[300] hover:text-gray-400 duration-100'>
             <span className='relative top-[1px]'>&lt;</span> voltar
@@ -96,7 +96,7 @@ const Autor = () => {
   
                   <SaveIcon 
                       title={`Salvar Máxima`} 
-                      className={`[&_*]:duration-100 translate-y-2 ${!salvas[quote.id] ? '[&_path]:stroke-gray-500 hover:[&_path]:fill-gray-500 [&_path]:fill-none' : '[&_path]:stroke-gray-500 [&_path]:hover:fill-gray-500 [&_path]:fill-gray-500'}`} 
+                      className={`[scale:.6] [&_*]:duration-100 ${!salvas[quote.id] ? '[&_path]:stroke-gray-500 hover:[&_path]:fill-gray-500 [&_path]:fill-none' : '[&_path]:stroke-gray-500 [&_path]:hover:fill-gray-500 [&_path]:fill-gray-500'}`} 
                       onClick={()=> salvar(quote.id)} 
                   />       
                 </div>
