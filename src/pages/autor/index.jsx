@@ -18,7 +18,7 @@ const Autor = () => {
   const [viewSaved, setViewSaved] = useState(false)
 
   useEffect(() => {
-    const filtered = quotes.quotes.filter(quote => quote.author.split(' ').join('-') === author);
+    const filtered = quotes.quotes.filter(quote => !quote.about && quote.author.split(' ').join('-') === author);
     setFilteredQuotes(filtered);
   }, [author]);
 
@@ -40,6 +40,7 @@ const Autor = () => {
       return updtSalvas;
     });
   };
+  const about = quotes.quotes.filter(item => item.about && item.author.split(' ').join('-') === author).map(item => item.about)
 
   return (
     <div className='w-full relative grid place-content-center bg-gray-200 dark:bg-gray-800 py-20 pl-10'>
@@ -49,21 +50,24 @@ const Autor = () => {
         </Helmet>
 
 
-      <div className='flex flex-col max-w-[1200px] w-full cl:px-16 px-4 mx-auto gap-5' key={'title'}>
-        <div className='flex justify-between'>
-          <button onClick={() => navigate(-1)} className='dark:text-gray-400 text-gray-900 font-["Poppins"] font-[300] hover:text-gray-400 duration-100'>
+      <div className='flex flex-col max-w-[1200px] w-full cl:px-16 px-4 mx-auto gap-5 relative' key={'title'}>
+
+          <button onClick={() => navigate(-1)} className='dark:text-gray-400 text-gray-900 font-["Poppins"] font-[300] hover:text-gray-400 duration-100 absolute right-12'>
             <span className='relative top-[1px]'>&lt;</span> voltar
           </button>
-          <h1 className='dark:text-gray-200 text-gray-600 sm:text-4xl text-xl font-["Poppins"] font-[500]'>{author.split('-').join(' ')}</h1>
-        </div>
 
-                      
+          <div className='flex flex-col gap-5'>
+            <h1 className='dark:text-gray-200 text-gray-600 sm:text-4xl text-xl font-["Poppins"] font-[500]'>{author.split('-').join(' ')}</h1>
+            <span className='dark:text-gray-400 text-gray-900 font-["Poppins"] text-balance' dangerouslySetInnerHTML={{__html:about}}></span>
+          </div>
+           <hr className='w-full border-gray-500 my-12 block [-webkit-mask-image:linear-gradient(270deg,transparent,#fff,#fff,transparent)] [mask-image:linear-gradient(270deg,transparent,#fff,#fff,transparent)]'/>
+           
           <Favoritos setViewSaved={setViewSaved} salvar={salvar} viewSaved={viewSaved} salvas={salvas} frases={quotes.quotes}/>
 
           {currentQuotes.map((quote, index) => (
             <div key={`${index}-${quote.id}`} className='py-5 quote [&:last-of-type_hr]:opacity-0'>
               <button onClick={() => navigate(`/autor/${author.split(' ').join('-').toLowerCase()}/maxima/${quote.id}`)} >
-                <h1 className='dark:text-gray-300 text-gray-700 font-["Poppins"] font-[400] sm:text-2xl text-lg leading-none text-left hover:dark:text-gray-100 hover:text-gray-500 duration-100'>"{quote.text}"</h1>
+                <h2 className='dark:text-gray-300 text-gray-700 font-["Poppins"] font-[400] sm:text-2xl text-lg leading-none text-left hover:dark:text-gray-100 hover:text-gray-500 duration-100'>"{quote.text}"</h2>
               </button>
   
               <div className='flex justify-between pt-5'>

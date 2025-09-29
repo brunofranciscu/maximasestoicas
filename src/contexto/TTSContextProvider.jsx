@@ -9,13 +9,13 @@ export const TTSContextProvider = ({ children }) => {
   const subscriptionKey = import.meta.env.VITE_AZURE_SUBSCRIPTION_KEY;
   const region = import.meta.env.VITE_AZURE_REGION;
   const convertTextToSpeech = async () => {
-
+  
     const endpoint = `https://${region}.tts.speech.microsoft.com/cognitiveservices/v1`;
 
     const ssml = `
-      <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='pt-BR'>
+      <speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang='pt-BR'>
         <voice name='pt-BR-MacerioMultilingualNeural'>
-          <prosody rate='0%' pitch='0%'>
+          <prosody rate='15%' pitch='-3%' contour="(60%,-60%) (100%,-10%)">
             ${text}
           </prosody>
         </voice>
@@ -44,9 +44,7 @@ export const TTSContextProvider = ({ children }) => {
       console.error('Erro ao converter texto em fala:', error);
     }
   };
-  const clearAudio = () => {
-    setAudioUrl(null);
-  };
+  const clearAudio = () => setAudioUrl(null)
 
   return (
     <TextToSpeechContext.Provider value={{ convertTextToSpeech, setText, text, audioUrl, clearAudio }}>

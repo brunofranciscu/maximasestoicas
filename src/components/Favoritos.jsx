@@ -17,8 +17,10 @@ export default function Favoritos({viewSaved, setViewSaved, salvar, salvas, fras
                     {Object.values(salvas).length < 1 && <span className='text-gray-700 dark:text-gray-300'>Nada encontrado.</span>}
                     
                     {Object.entries(salvas).map(([key, value]) => (
+                        
                         value && frases.map((frase) => (
-                            frase.id.toString() === key && 
+                            
+                            String(frase.id) === key && 
                             <li key={key} className='text-gray-600 dark:text-gray-400 cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-100 duration-100 flex gap-2 items-center px-12 py-3'>
                                 <button onClick={()=> salvar(frase.id)} className='text-red-500 hover:text-red-300 duration-75 z-[999999] leading-[0] text-lg'>
                                     x
